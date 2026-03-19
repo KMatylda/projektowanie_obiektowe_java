@@ -46,7 +46,7 @@ public class Main {
             System.out.println(iloczyn);
 
         } catch (Exception blad){
-            System.out.println("BŁĄD"); // przypadek gdy dane są liczbą
+            System.out.println("BŁĄD"); // przypadek gdy dane nie nie są liczbą
         }
 
 
