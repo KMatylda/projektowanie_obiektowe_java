@@ -12,7 +12,7 @@ public class MyDate {
     }
 
     public void displayDate() {
-        // % początek formatowania, 0 uzupełnia 0, 2 minimalna szerokość
+        // % początek formatowania, 0 uzupełnia 0, 2  szerokość
         // d liczba całkowita (integer)
         System.out.printf("%02d/%02d/%d%n", day, month, year);
     }

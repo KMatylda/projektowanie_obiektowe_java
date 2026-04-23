@@ -12,22 +12,12 @@ public class Student {
         this.imie = "Unknown";
         this.nazwisko = "Unknown";
     }
+
     // konstruktor z imieniem i nazwiskiem
     public Student(String imie, String nazwisko) {
-        // is.Empty sprawdza dodatkowo czy tekst jest pusty
-        if (imie == null || imie.isEmpty()) {
-            this.imie = "Unknown";
-        } else {
-            this.imie = imie;
-        }
-
-        if (nazwisko == null || nazwisko.isEmpty()) {
-            this.nazwisko = "Unknown";
-        } else {
-            this.nazwisko = nazwisko;
-        }
+            setImie(imie);
+            setNazwisko(nazwisko);
     }
-
 
     // metoda get
     public String getImie() {
@@ -36,7 +26,12 @@ public class Student {
 
     // metoda set
     public void setImie(String newImie) {
-        this.imie = newImie;
+        // is.Empty sprawdza dodatkowo czy tekst jest pusty
+        if (newImie == null || newImie.isEmpty()) {
+            this.imie = "Unknown";
+        } else {
+            this.imie = newImie;
+        }
     }
 
     public String getNazwisko() {
@@ -44,7 +39,11 @@ public class Student {
     }
 
     public void setNazwisko(String newNazwisko) {
-        this.nazwisko = newNazwisko;
+        if (newNazwisko == null || newNazwisko.isEmpty()) {
+            this.nazwisko = "Unknown";
+        } else {
+            this.nazwisko = newNazwisko;
+        }
     }
 
     public int getNumerIndeksu() {

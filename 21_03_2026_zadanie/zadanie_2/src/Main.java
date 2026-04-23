@@ -28,6 +28,17 @@ public class Main {
         System.out.println(p3.getImie() + " " + p3.getNazwisko()
                 + " | Indeks: " + p3.getNumerIndeksu()
                 + " | Ocena POJ: " + p3.getOcenaPoj());
+
+        // Obiekt 4 - bezwarunkowy konstruktor > test setter
+        Student p4 = new Student();
+        p4.setImie("");
+        p4.setNazwisko(null);
+        p4.setNumerIndeksu(24881);
+        p4.setObecnosc(0.7f);
+        p4.setOcenaPoj(5);
+        System.out.println(p3.getImie() + " " + p4.getNazwisko()
+                + " | Indeks: " + p4.getNumerIndeksu()
+                + " | Ocena POJ: " + p4.getOcenaPoj());
     }
 }
 

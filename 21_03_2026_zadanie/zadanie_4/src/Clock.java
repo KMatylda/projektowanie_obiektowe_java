@@ -27,7 +27,7 @@ public class Clock {
         this.seconds = totalSeconds % 60;
     }
 
-    //
+
     public void tick() {
         seconds++;
 
