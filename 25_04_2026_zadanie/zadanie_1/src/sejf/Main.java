@@ -63,7 +63,6 @@ public class Main {
         sejf3.enterPin("9999"); // DOBRY pin – obydwa alarmy wyłączone, logowane w pliku
 
 
-
         // TEST 4: Sejf bez żadnych alarmów (edge case)
 
         System.out.println("\n========================================");
@@ -79,5 +78,32 @@ public class Main {
         System.out.println("Wszystkie testy zakończone!");
         System.out.println("Sprawdź pliki alarm_log.txt i sound_log.txt");
         System.out.println("========================================");
+
+
+        // TEST 5: Sejf z konfigiem mieszanym – krata + dźwięk, różne loggery
+
+        System.out.println("\n========================================");
+        System.out.println("TEST 5: Krata + dźwięk, dwa różne loggery");
+        System.out.println("========================================");
+
+        Safe sejf5 = new Safe("pass");                    // pin to "pass"
+
+        BarsAlarm barsAlarm = new BarsAlarm();            // alarm kratowy
+        SoundAlarm soundAlarm3 = new SoundAlarm();        // alarm dźwiękowy
+
+    // Krata – loguje na konsolę od ERROR (tylko poważne zdarzenia)
+        ConsoleLogger errorOnlyLogger = new ConsoleLogger(Severity.ERROR);
+        barsAlarm.setLogger(errorOnlyLogger);
+
+    // Dźwięk – loguje do pliku od INFO (wszystkie zdarzenia)
+        FileLogger fullFileLogger = new FileLogger(Severity.INFO, "sound_log.txt");
+        soundAlarm3.setLogger(fullFileLogger);
+
+        sejf5.addAlarm(barsAlarm);    // podłączamy kratę
+        sejf5.addAlarm(soundAlarm3);  // podłączamy dźwięk
+
+        sejf5.enterPin("wrong");   // ZŁY pin – krata i dźwięk aktywowane
+        sejf5.enterPin("pass");    // DOBRY pin – oba wyłączone
     }
+
 }
