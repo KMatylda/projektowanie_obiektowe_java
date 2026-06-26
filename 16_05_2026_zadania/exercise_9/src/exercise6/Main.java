@@ -1,6 +1,6 @@
+package exercise6;
+
 import java.util.*;
-import java.io.*;
-import java.math.*;
 
 /**
  * Auto-generated code below aims at helping you parse
